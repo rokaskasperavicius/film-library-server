@@ -12,6 +12,7 @@ app.get("/youtube", async (req, res) => {
   const search = req.query.search;
 
   const browser = await puppeteer.launch({
+    executablePath: "/usr/bin/google-chrome",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
