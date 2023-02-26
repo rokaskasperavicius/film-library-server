@@ -11,7 +11,10 @@ app.get("/", (req, res) => {
 app.get("/youtube", async (req, res) => {
   const search = req.query.search;
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    ignoreDefaultArgs: ["--disable-extensions"],
+  });
   const page = await browser.newPage();
 
   await page.goto(`https://www.youtube.com/results?search_query=${search}`);
