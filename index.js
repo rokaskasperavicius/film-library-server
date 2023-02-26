@@ -13,7 +13,6 @@ app.get("/youtube", async (req, res) => {
 
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    ignoreDefaultArgs: ["--disable-extensions"],
   });
   const page = await browser.newPage();
 
